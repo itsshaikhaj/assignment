@@ -27,7 +27,6 @@ const uploadFile = multer({
 
 // Delete File from S3
 const deleteFile = async (filename) => {
-    console.log('filename :', filename);
     try {
         await s3.deleteObject({ Bucket: BUCKET_NAME, Key: filename }).promise();
         return { success: true, data: "File deleted Successfully" }
